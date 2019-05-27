@@ -15,7 +15,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        document.title = "Tic-Tac-Toe by Julio"
+        document.title = "Ultimate Tic-Tac-Toe by Julio"
     }
 
     playGame = () => {

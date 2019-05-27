@@ -11,6 +11,18 @@ ol, ul {
   padding-left: 0px;
 }
 
+.left-button {
+  float: left;
+}
+
+.right-button {
+  float: right;
+}
+
+.buttons {
+  width: 70vw
+}
+
 .welcome-text {
   margin: 5px;
 }
@@ -46,6 +58,7 @@ ol, ul {
 .square {
   background: #fff;
   border: 0.1vw solid #999;
+  /* border-right: 1vw solid black; */
   float: left;
   font-size: 5vw;
   font-weight: bold;
@@ -71,9 +84,9 @@ ol, ul {
   margin: 0 auto;
   position: absolute;
   top: 10vh;
-  left: 38vw;
+  left: 14vw;
 }
 
 .game-info {
-  margin-left: 0px;
+  margin-top: 10vh;
 }

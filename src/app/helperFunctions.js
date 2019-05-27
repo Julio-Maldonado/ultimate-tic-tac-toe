@@ -17,4 +17,40 @@ let calculateWinner = (squares) => {
     return null
 }
 
-export {calculateWinner}
+let getStyle = (num, value, belongsTo, green) => {
+    let style = {}
+
+    let x = num % 3
+	if (x === 0)
+		style.borderLeft = "0.2vw solid black"
+	else if (x === 2)
+		style.borderRight = "0.2vw solid black"
+	
+	x = num % 9
+	if (x >= 0 && x <= 2)
+		style.borderTop = "0.2vw solid black"
+	else if (x >= 6 && x <= 8)
+		style.borderBottom = "0.2vw solid black"
+	
+	if (value === "X")
+		style.color = "red"
+	else if (value === "O")
+		style.color = "lightblue"
+
+	if (belongsTo === "X")
+		style.background = "maroon"
+	else if (belongsTo === "O")
+		style.background = "blue"
+	else if (belongsTo === "NO_SOLUTION")
+		style.background = "grey"
+	else {
+		if (green)
+			style.background = "lightgreen"
+		else
+			style.background = "white"
+	}
+
+	return style
+}
+
+export {getStyle, calculateWinner}
