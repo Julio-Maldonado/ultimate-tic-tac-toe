@@ -31,6 +31,36 @@ ol, ul {
   margin-top: 20vh;
 }
 
+.square {
+  background: #fff;
+  border: 0.1vw solid #999;
+  /* border-right: 1vw solid black; */
+  float: left;
+  font-size: 3vw;
+  font-weight: bold;
+  padding: 0;
+  line-height: 4vw;
+  height: 4vw;
+  width: 4vw;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .square {
+    background: #fff;
+    border: 0.1vw solid #999;
+    /* border-right: 1vw solid black; */
+    float: left;
+    font-size: 5vw;
+    font-weight: bold;
+    padding: 0;
+    line-height: 8vw;
+    height: 8vw;
+    width: 8vw;
+    text-align: center;
+  }
+}
+
 .welcome-box {
   height: 70vh;
   width: 50vw;
@@ -55,20 +85,6 @@ ol, ul {
   margin-bottom: 10px;
 }
 
-.square {
-  background: #fff;
-  border: 0.1vw solid #999;
-  /* border-right: 1vw solid black; */
-  float: left;
-  font-size: 5vw;
-  font-weight: bold;
-  padding: 0;
-  line-height: 8vw;
-  height: 8vw;
-  width: 8vw;
-  text-align: center;
-}
-
 .square:focus {
   outline: none;
 }
@@ -88,5 +104,5 @@ ol, ul {
 }
 
 .game-info {
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
