@@ -6,6 +6,54 @@ import {calculateWinner} from './helperFunctions'
 import './styles.css'
 import PropTypes from 'prop-types'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
+import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebookF';
+import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
+import faLinkedinIn from '@fortawesome/fontawesome-free-brands/faLinkedinIn';
+// import faAngellist from '@fortawesome/fontawesome-free-brands/faAngellist';
+// import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
+import faEnvelope from '@fortawesome/fontawesome-free-regular/faEnvelope';
+
+const data = [
+	{
+	  link: 'https://github.com/Julio-Maldonado',
+	  label: 'Github',
+	  icon: faGithub,
+	},
+	{
+	  link: 'https://www.facebook.com/julio.maldonado.904',
+	  label: 'Facebook',
+	  icon: faFacebook,
+	},
+	{
+	  link: 'https://www.instagram.com/_julio_maldonado/',
+	  label: 'Instagram',
+	  icon: faInstagram,
+	},
+	{
+	  link: 'https://www.linkedin.com/in/juliom72/',
+	  label: 'LinkedIn',
+	  icon: faLinkedinIn,
+	},
+	// {
+	//   link: 'https://angel.co/michael-d-angelo',
+	//   label: 'Angel List',
+	//   icon: faAngellist,
+	// },
+	// {
+	//   link: 'https://twitter.com/dangelosaurus',
+	//   label: 'Twitter',
+	//   icon: faTwitter,
+	// },
+	{
+	  link: 'mailto:julio.maldonado.guzman@gmail.com',
+	  label: 'Email',
+	  icon: faEnvelope,
+	},
+];
+
 class Game extends Component {
     state = {
     	history: [{
@@ -109,61 +157,70 @@ class Game extends Component {
 		}
 
     render() {
-			const openModal = this.state.openModal
-			const openEndGameModal = this.state.openEndGameModal
-			const openInstructionsModal = this.state.openInstructionsModal
+		const openModal = this.state.openModal
+		const openEndGameModal = this.state.openEndGameModal
+		const openInstructionsModal = this.state.openInstructionsModal
 
     	const history = this.state.history
-			const current = history[this.state.stepNumber]
-			const localWinners = this.state.localWinners.slice()
-			const winner = calculateWinner(localWinners)
+		const current = history[this.state.stepNumber]
+		const localWinners = this.state.localWinners.slice()
+		const winner = calculateWinner(localWinners)
 
     	let status
-			if (winner && !openModal) {
+		if (winner && !openModal) {
+			if (this.props.englishFlag)
+				status = 'Winner: ' + winner
+			else 
+				status = 'Ganador: ' + winner
+			this.onOpenModal()
+		} else {
 				if (this.props.englishFlag)
-					status = 'Winner: ' + winner
+					status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O')
 				else 
-					status = 'Ganador: ' + winner
-				this.onOpenModal()
-			} else {
-					if (this.props.englishFlag)
-						status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O')
-					else 
-						status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O')
-			}
+					status = 'Siguiente jugador: ' + (this.state.xIsNext ? 'X' : 'O')
+		}
 
-			if (history.length === 82 && !openModal) {
-				this.tie = true
-				this.onOpenModal()
-			}
+		if (history.length === 82 && !openModal) {
+			this.tie = true
+			this.onOpenModal()
+		}
     	return (
     		<div className="game">
-					{
-						this.props.englishFlag ?
-							(<Modal open={openModal} onClose={this.onCloseModal} center>
-								{this.tie ? <h2>It's a tie!</h2> : <h2>Congrats Player {winner}!</h2>}
-								<button className="left-button" onClick={() => this.onCloseModal()}>Play Again</button>
-								<button className="right-button" onClick={() => this.props.returnToHomeScreen()}>Go Back</button>
-							</Modal>)
-								:
-							(<Modal open={openModal} onClose={this.onCloseModal} center>
-								{this.tie ? <h2>Es una empate!</h2> : <h2>Felicidades Jugador {winner}!</h2>}
-								<button className="left-button" onClick={() => this.onCloseModal()}>Juega de Nuevo</button>
-								<button className="right-button" onClick={() => this.props.returnToHomeScreen()}>Regresa</button>
-							</Modal>)
-					}
-					<Buttons englishFlag={this.props.englishFlag} returnToHomeScreen={this.props.returnToHomeScreen}/>
+				{
+					this.props.englishFlag ?
+						(<Modal open={openModal} onClose={this.onCloseModal} center>
+							{this.tie ? <h2>It's a tie!</h2> : <h2>Congrats Player {winner}!</h2>}
+							<button className="left-button" onClick={() => this.onCloseModal()}>Play Again</button>
+							<button className="right-button" onClick={() => this.props.returnToHomeScreen()}>Go Back</button>
+						</Modal>)
+							:
+						(<Modal open={openModal} onClose={this.onCloseModal} center>
+							{this.tie ? <h2>Es una empate!</h2> : <h2>Felicidades Jugador {winner}!</h2>}
+							<button className="left-button" onClick={() => this.onCloseModal()}>Juega de Nuevo</button>
+							<button className="right-button" onClick={() => this.props.returnToHomeScreen()}>Regresa</button>
+						</Modal>)
+				}
+				<Buttons englishFlag={this.props.englishFlag} returnToHomeScreen={this.props.returnToHomeScreen}/>
     			<div className="game-board">
     				<Board
-							nextSquare={this.nextSquare}
-							squares={current.squares}
-							localWinners={localWinners}
+						nextSquare={this.nextSquare}
+						squares={current.squares}
+						localWinners={localWinners}
     					onClick={(i) => this.handleClick(i)}
     				/>
     			</div>
     			<div className="game-info">
     				<div>{status}</div>
     			</div>
+
+				<div id="footer-game">
+                    <ul className="icons-game">
+                        {data.map(s => (
+                            <li key={s.label}><a href={s.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={s.icon} /></a></li>
+                        ))}
+                    </ul>
+                    <p className="copyright-game">&copy; Julio Maldonado <a href="juliomaldonado.com" className="web-link" target="_blank" rel="noopener noreferrer">juliomaldonado.com</a></p>
+                </div>
     		</div>
     	)
     }

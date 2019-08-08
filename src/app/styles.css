@@ -45,6 +45,39 @@ ol, ul {
   text-align: center;
 }
 
+#footer-welcome {
+  position: absolute;
+  bottom: 5vh;
+  left: 23vw;
+}
+
+.icons-welcome {
+  position: absolute;
+  /* left: 23vw; */
+  bottom: 1vh;
+}
+
+.copyright-welcome {
+  margin: 0;
+}
+
+#footer-game {
+  position: absolute;
+  bottom: -10vh;
+  /* float: left; */
+  left: 0vw;
+}
+
+.icons-game {
+  position: absolute;
+  /* left: 23vw; */
+  bottom: 1vh;
+}
+
+.copyright-game {
+  margin: 0;
+}
+
 @media only screen and (max-width: 700px) {
   .square {
     background: #fff;
@@ -58,6 +91,22 @@ ol, ul {
     height: 8vw;
     width: 8vw;
     text-align: center;
+  }
+
+  #footer-welcome {
+    position: absolute;
+    bottom: 0vh;
+    left: 23vw;
+  }
+  
+  .icons-welcome {
+    position: absolute;
+    /* left: 23vw; */
+    bottom: 1vh;
+  }
+  
+  .copyright-welcome {
+    margin: 0;
   }
 }
 
@@ -73,6 +122,21 @@ ol, ul {
   right: 23vw;
   border-style: double;
   border-style: groove;
+}
+
+li {
+  display: inline;
+}
+
+li a {
+  white-space: nowrap;
+  color: black;
+}
+
+li:after {
+  content: " ";
+  letter-spacing: 1em;
+  background: center center no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwAAADsABataJCQAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMkMEa+wAAAAnSURBVBhXY/Dz89MA4sNA/B9Ka4AEYQIwfBgkiCwAxjhVopnppwEApxQqhnyQ+VkAAAAASUVORK5CYII=);
 }
 
 .board-row:after {
@@ -106,3 +170,4 @@ ol, ul {
 .game-info {
   margin-top: 5vh;
 }
+
