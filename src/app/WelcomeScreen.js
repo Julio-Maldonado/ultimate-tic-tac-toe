@@ -82,7 +82,7 @@ class WelcomeScreen extends React.Component {
                             <li key={s.label}><a href={s.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={s.icon} /></a></li>
                         ))}
                     </ul>
-                    <p className="copyright-welcome">&copy; Julio Maldonado <a href={"juliomaldonado.com"} target="_blank" rel="noopener noreferrer">juliomaldonado.com</a></p>
+                    <p className="copyright-welcome">&copy; Julio Maldonado <a href={"https://juliomaldonado.com"} target="_blank" rel="noopener noreferrer">juliomaldonado.com</a></p>
                 </div>
                 <Welcome
                     loopDuration={1000}
