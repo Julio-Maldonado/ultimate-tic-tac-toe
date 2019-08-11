@@ -46,36 +46,69 @@ ol, ul {
 }
 
 #footer-welcome {
-  position: absolute;
-  bottom: 5vh;
-  left: 23vw;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 .icons-welcome {
-  position: absolute;
-  /* left: 23vw; */
-  bottom: 1vh;
+  margin-bottom: 0;
+  width: 100vw;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .copyright-welcome {
   margin: 0;
+  bottom: 0;
 }
 
 #footer-game {
   position: absolute;
-  bottom: -10vh;
-  /* float: left; */
-  left: 0vw;
+  top: 80vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 .icons-game {
-  position: absolute;
+  margin-bottom: 0;
   /* left: 23vw; */
-  bottom: 1vh;
+  width: 100vw;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-.copyright-game {
+p a { /* copyright-game */
   margin: 0;
+}
+
+.welcome-box {
+  height: 70vh;
+  width: 50vw;
+  border: 1vw solid green;
+  padding: 1vw;
+  margin: 0 auto;
+  position: absolute;
+  top: 10vh;
+  left: 23vw;
+  right: 23vw;
+  border-style: double;
+  border-style: groove;
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    height: 110vh;
+  }
+
+  #footer-game {
+    top: 95vh;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -93,39 +126,59 @@ ol, ul {
     text-align: center;
   }
 
+  .welcome-box {
+    height: 65vh;
+    width: 50vw;
+    border: 1vw solid green;
+    padding: 1vw;
+    margin: 0 auto;
+    position: absolute;
+    top: 10vh;
+    left: 23vw;
+    right: 23vw;
+    border-style: double;
+    border-style: groove;
+  }
+
   #footer-welcome {
     position: absolute;
-    bottom: 0vh;
-    left: 23vw;
+    top: 85vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
   }
   
   .icons-welcome {
-    position: absolute;
+    /* position: absolute; */
     /* left: 23vw; */
-    bottom: 1vh;
-  }
-  
-  .copyright-welcome {
+    /* bottom: 10vh; */
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    padding: 0;
     margin: 0;
   }
-}
 
-.welcome-box {
-  height: 70vh;
-  width: 50vw;
-  border: 1vw solid green;
-  padding: 1vw;
-  margin: 0 auto;
-  position: absolute;
-  top: 10vh;
-  left: 23vw;
-  right: 23vw;
-  border-style: double;
-  border-style: groove;
+  p a { /* copyright-welcome */
+    margin: 0;
+    padding: 0;
+  }
+
+  #footer-game {
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+  }
+
 }
 
 li {
   display: inline;
+  *display: inline;
+  *zoom: 1;
 }
 
 li a {

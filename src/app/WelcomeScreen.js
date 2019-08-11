@@ -4,7 +4,6 @@ import './styles.css'
 import PropTypes from 'prop-types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
 import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebookF';
 import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
@@ -32,16 +31,6 @@ const data = [
 	  label: 'LinkedIn',
 	  icon: faLinkedinIn,
 	},
-	// {
-	//   link: 'https://angel.co/michael-d-angelo',
-	//   label: 'Angel List',
-	//   icon: faAngellist,
-	// },
-	// {
-	//   link: 'https://twitter.com/dangelosaurus',
-	//   label: 'Twitter',
-	//   icon: faTwitter,
-	// },
 	{
 	  link: 'mailto:julio.maldonado.guzman@gmail.com',
 	  label: 'Email',
@@ -76,13 +65,21 @@ class WelcomeScreen extends React.Component {
                         {this.props.englishFlag ? "Espanol" : "English"}
                     </button>
                 </div>
-                <div id="footer-welcome"  ref={(div) => { this.descriptionDiv = div; }}>
+                <div id="footer-welcome">
                     <ul className="icons-welcome">
                         {data.map(s => (
-                            <li key={s.label}><a href={s.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={s.icon} /></a></li>
+                            <li key={s.label}>
+                                <a href={s.link} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={s.icon} />
+                                </a>
+                            </li>
                         ))}
                     </ul>
-                    <p className="copyright-welcome">&copy; Julio Maldonado <a href={"https://juliomaldonado.com"} target="_blank" rel="noopener noreferrer">juliomaldonado.com</a></p>
+                    <p className="copyright-welcome">
+                        <a href={"https://juliomaldonado.com"} target="_blank" rel="noopener noreferrer">
+                            juliomaldonado.com
+                        </a>
+                    </p>
                 </div>
                 <Welcome
                     loopDuration={1000}

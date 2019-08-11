@@ -214,10 +214,18 @@ class Game extends Component {
 				<div id="footer-game">
                     <ul className="icons-game">
                         {data.map(s => (
-                            <li key={s.label}><a href={s.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={s.icon} /></a></li>
+                            <li key={s.label}>
+								<a href={s.link} target="_blank" rel="noopener noreferrer">
+									<FontAwesomeIcon icon={s.icon} />
+								</a>
+							</li>
                         ))}
                     </ul>
-                    <p className="copyright-game">&copy; Julio Maldonado <a href="https://juliomaldonado.com" target="_blank" rel="noopener noreferrer">juliomaldonado.com</a></p>
+                    <p className="copyright-game">
+						<a href="https://juliomaldonado.com" target="_blank" rel="noopener noreferrer">
+							juliomaldonado.com
+						</a>
+					</p>
                 </div>
     		</div>
     	)
